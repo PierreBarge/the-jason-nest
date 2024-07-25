@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "firstname": "Jean",
+    "lastname": "Marius",
+    "age": "27",
+    "country": "France",
+    "city": "Clermont-Ferrand"
+  },
+  {
+    "id": 2,
+    "firstname": "Pierre",
+    "lastname": "Barge",
+    "age": "39",
+    "country": "France",
+    "city": "Clermont-Ferrand"
+  },
+  {
+    "id": 3,
+    "firstname": "Maxime",
+    "lastname": "Royan",
+    "age": "23",
+    "country": "France",
+    "city": "Vichy"
+  },
+  {
+    "id": 4,
+    "firstname": "Axel",
+    "lastname": "Remont",
+    "age": "22",
+    "country": "France",
+    "city": "Thiers"
+  },
+  {
+    "id": 5,
+    "firstname": "Charlie",
+    "lastname": "Perron d'Arc",
+    "age": "20",
+    "country": "France",
+    "city": "Cournon d'Auvergne"
+  },
+  {
+    "id": 6,
+    "firstname": "Clément",
+    "lastname": "Matthieu",
+    "age": "22",
+    "country": "France",
+    "city": "Cournon d'Auvergne"
+  }
+]
