@@ -9,14 +9,15 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 import { Content } from './content.type';
-import { ContentData } from './ContentData';
+import { ContentService } from './content.service';
 
 @Controller('content')
 export class ContentController {
+  constructor(private service: ContentService) {}
+
   @Get()
   async getAll(@Res() res: Response): Promise<void> {
-    const contentData = new ContentData();
-    const data = contentData.getContent('main');
+    const data = this.service.getContent('main');
     return data.then((data: string) => {
       res.status(HttpStatus.OK).json(data);
     });
@@ -27,8 +28,7 @@ export class ContentController {
     @Res() res: Response,
     @Param('firstname') params: string,
   ) {
-    const contentData = new ContentData();
-    const data = contentData.getContent('main');
+    const data = this.service.getContent('main');
     return data
       .then((data: Content[]) =>
         data.filter(
@@ -46,8 +46,7 @@ export class ContentController {
     @Body() body: Content,
     @Res() res: Response,
   ) {
-    const contentData = new ContentData();
-    const data = contentData.getContent('main');
+    const data = this.service.getContent('main');
     return data
       .then((data: Content[]) =>
         data.map((data) => {
@@ -58,7 +57,7 @@ export class ContentController {
         }),
       )
       .then((data) => {
-        contentData.setContent('main', data);
+        this.service.setContent('main', data);
         res.status(HttpStatus.OK).json(data);
       });
   }
@@ -69,8 +68,7 @@ export class ContentController {
     @Body() body: any,
     @Res() res: Response,
   ) {
-    const contentData = new ContentData();
-    const data = contentData.getContent('main');
+    const data = this.service.getContent('main');
     return data
       .then((data: Content[]) =>
         data.map((data) => {
@@ -81,15 +79,14 @@ export class ContentController {
         }),
       )
       .then((data) => {
-        contentData.setContent('main', data);
+        this.service.setContent('main', data);
         res.status(HttpStatus.OK).json(data);
       });
   }
 
   @Put('add/cities')
   async addCities(@Res() res: Response) {
-    const contentData = new ContentData();
-    const data = contentData.getContent('main');
+    const data = this.service.getContent('main');
     return data
       .then((data: Content[]) =>
         data.map((item) => {
@@ -108,7 +105,7 @@ export class ContentController {
         }),
       )
       .then((data) => {
-        contentData.setContent('main', data);
+        this.service.setContent('main', data);
         res.sendStatus(HttpStatus.OK);
       });
   }

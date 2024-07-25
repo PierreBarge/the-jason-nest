@@ -1,6 +1,8 @@
+import { Injectable } from '@nestjs/common';
 import * as fs from 'node:fs';
 
-export class ContentData {
+@Injectable()
+export class ContentService {
   paths = {
     main: {
       default: './src/content/assets/content.default.json',
